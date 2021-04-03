@@ -1,7 +1,7 @@
 <#
 
 .Synopsis
-IIS Admin Functions developed by Mercaado Eletronico
+IIS Admin Functions developed by Mercado Eletronico
 
 .Paramer Recipe
 N/A
@@ -12,9 +12,9 @@ Get-IISCurrentRequests -forever
 #>
 
 Function Get-IISCurrentRequests {
-    Write-Host "Show IIS Requests for all WorkerProcess. Hit Ctrl+C to Stop."
     while (1) {
         Clear
+        Write-Host "Showing IIS Requests for all WorkerProcess. Hit Ctrl+C to Stop...`n"
         $wp = Get-WmiObject WorkerProcess -Namespace root\WebAdministration
 
         foreach($w in $wp)
@@ -27,4 +27,13 @@ Function Get-IISCurrentRequests {
     
 }
 
+Function Restart-IIS {
+    Write-Host "Stopping W3SVC first ..."
+    Stop-Service w3svc
+    Write-Host "Calling for a IIReset... "
+    iisreset.exe
+    Write-Host "All Done!"
+}
+
 Export-ModuleMember -Function Get-IISCurrentRequests
+Export-ModuleMember -Function Restart-IIS

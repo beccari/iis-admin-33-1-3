@@ -10,6 +10,8 @@ Please refer the main IISAdminstration Powershell Cmdlets https://docs.microsoft
 
 # Installing
 
+Just clone this repo  and run
+
 `copy -Force -Recurse .\IISAdmin33 $env:PSModulePath.Split(';')[0]`
 
 > Restart the Powershell Session in order to get the updated version
