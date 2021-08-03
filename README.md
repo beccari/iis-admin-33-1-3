@@ -29,3 +29,23 @@ Will fetch the requests from all **WorkerProcess** every 1sec.
 IIS Web Core         1906 GET  /do/Theme.mvc/GetTheme/azul_escuro...
 IIS Web Core         1891 GET  /do/Timezone.mvc/Culture
 ```
+
+
+## Restart-IIS
+This method combines two different commands:
+- stop w3svc
+- iisreset
+
+```
+⨯ ⚡ beccari@RAYGUN  ~                                                                                  [11:56]
+❯ Restart-IIS
+Stopping W3SVC first ...
+WARNING: Waiting for service 'World Wide Web Publishing Service (w3svc)' to stop...
+Calling for a IIReset...
+
+Attempting stop...
+Internet services successfully stopped
+Attempting start...
+Internet services successfully restarted
+All Done!
+```
